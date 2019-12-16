@@ -5,6 +5,7 @@
 ![Docker](https://img.shields.io/badge/docker-v3+-blue.svg)
 ![Docker-Compose](https://img.shields.io/badge/docker_compose-v3.0+-blue.svg)
 [![Release Status](https://jitci.com/gh/TBFY/api-gateway/svg)](https://jitci.com/gh/TBFY/api-gateway)
+[![](https://jitpack.io/v/TBFY/api-gateway.svg)](https://jitpack.io/#TBFY/api-gateway)
 [![GitHub Issues](https://img.shields.io/github/issues/TBFY/api-gateway.svg)](https://github.com/TBFY/api-gateway/issues)
 [![License](https://img.shields.io/badge/license-Apache2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
