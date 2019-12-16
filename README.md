@@ -25,18 +25,18 @@ Orchestration Microservice API Gateway. It provides a flexible abstraction layer
     ```
     docker-compose up -d
 	``` 
-1. It should be available at: [http://localhost:8000](http://localhost:8000)
-1. Load the services available in TBFY into the API-Gateway by:
+1. That's all! It should be listening at: [http://localhost:8000](http://localhost:8000)
     ```
-    python3 src/main/python/config.py
-	``` 
-1. That's all!
+    {
+      message: "no route and no API found with those values"
+    }
+	```
 
 ## Current Services
 
-Once the API-Gateway is up and running, you can request all services from a single entry point by different resources:
+Once the API-Gateway is up and running, all TBFY services are available from a single entry point:
 
-|               service                      |                                 resource                                           |
+|               service                      |                                 as resource                                           |
 |--------------------------------------------|------------------------------------------------------------------------------------|
 |    reconciliation: organization names      |    [/brands](http://localhost:8000/brands)      |
 |    knowledge-graph: SparQL Queries         |    [/sparql](http://localhost:8000/sparql)      |

@@ -83,3 +83,5 @@ services:
     restart: on-failure
     stdin_open: true
     tty: true
+    volumes:
+      - ./data:/var/lib/postgresql/data
