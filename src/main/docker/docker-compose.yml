@@ -13,7 +13,7 @@ services:
 
   kong-migrations:
     image: "${KONG_DOCKER_TAG:-kong:0.13.0}"
-    command: kong migrations bootstrap
+    command: kong migrations reset
     depends_on:
       db:
         condition: service_healthy

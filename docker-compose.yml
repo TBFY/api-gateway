@@ -30,7 +30,7 @@ services:
       interval: 10s
       timeout: 10s
       retries: 10
-    restart: on-failure
+    restart: always
 
   db:
     image: tbfy/gateway-db:latest
@@ -43,6 +43,6 @@ services:
       interval: 30s
       timeout: 30s
       retries: 3
-    restart: on-failure
-    stdin_open: true
-    tty: true
+    restart: always
+    stdin_open: false
+    tty: false

@@ -66,6 +66,21 @@ kgAPI_organisation = {
     "http_if_terminated":True
 }
 
+kgAPI_company = {
+    "name":"kg-companies",
+    "uris":"/companies",
+    "methods":"GET",
+    "upstream_url":"http://tbfy.librairy.linkeddata.es/kg-api/company",
+    "strip_uri":True,
+    "preserve_host":False,
+    "retries":5,
+    "upstream_connect_timeout":60000,
+    "upstream_send_timeout":60000,
+    "upstream_read_timeout":60000,
+    "https_only":False,
+    "http_if_terminated":True
+}
+
 kgAPI_contract = {
     "name":"kg-contract",
     "uris":"/contracts",
@@ -115,7 +130,7 @@ kgAPI_contractingProcesses = {
     "name":"kg-contractingProcesses",
     "uris":"/contractingProcesses",
     "methods":"GET",
-    "upstream_url":"http://tbfy.librairy.linkeddata.es/kg-api/contracting-process",
+    "upstream_url":"http://tbfy.librairy.linkeddata.es/kg-api/contractingProcess",
     "strip_uri":True,
     "preserve_host":False,
     "retries":5,
@@ -129,7 +144,7 @@ kgAPI_contractingProcesses = {
 
 
 
-configs = [searchAPI, kgAPI_organisation, kgAPI_award, kgAPI_contract, kgAPI_contractingProcesses, kgAPI_tender, reconciliationAPI, sparQLEndpoint]
+configs = [searchAPI, kgAPI_organisation, kgAPI_company,  kgAPI_award, kgAPI_contract, kgAPI_contractingProcesses, kgAPI_tender, reconciliationAPI, sparQLEndpoint]
 
 
 for config in configs:
