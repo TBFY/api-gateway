@@ -39,14 +39,8 @@ Once the API-Gateway is up and running, all TBFY services are available from a s
 
 |               service                      |                                 as resource                                           |
 |--------------------------------------------|------------------------------------------------------------------------------------|
-<!--|    companies info      	                   |    [/companies](https://tbfy.librairy.linkeddata.es/api/companies)      |-->
 |    industry codes info      	                   |    [/industryCodes](https://tbfy.librairy.linkeddata.es/api/industryCodes)      |
 |    jurisdictions info      	                   |    [/jurisdictions](https://tbfy.librairy.linkeddata.es/api/jurisdictions)      |
-<!--|    placeholders info      	                   |    [/placeholders](https://tbfy.librairy.linkeddata.es/api/placeholders)      |
-|    statements info      	                   |    [/statements](https://tbfy.librairy.linkeddata.es/api/statements)      |
-|    filings info      	                   |    [/filings](https://tbfy.librairy.linkeddata.es/api/filings)      |
-|    corporate groupings info      	                   |    [/corporateGroupings](https://tbfy.librairy.linkeddata.es/api/corporateGroupings)      |
-|    officers info      	                   |    [/officers](https://tbfy.librairy.linkeddata.es/api/officers)      |-->
 |    OCDS info          	                   |    [/ocds](https://tbfy.librairy.linkeddata.es/api/ocds)      |
 |    reconciliation: organization names      |    [/brands](https://tbfy.librairy.linkeddata.es/api/brands)      |
 |    knowledge-graph: SparQL Queries         |    [/triples](https://tbfy.librairy.linkeddata.es/api/triples)      |
@@ -56,6 +50,7 @@ Once the API-Gateway is up and running, all TBFY services are available from a s
 |    knowledge-graph-API: tenders            |    [/tender](https://tbfy.librairy.linkeddata.es/api/tender)      |
 |    knowledge-graph-API: awards             |    [/award](https://tbfy.librairy.linkeddata.es/api/award)      |
 |    knowledge-graph-API: contracting processes      |    [/contractingProcess](https://tbfy.librairy.linkeddata.es/api/contractingProcess)      |
+
 
 
 ## Contributing
