@@ -37,18 +37,16 @@ Orchestration Microservice API Gateway. It provides a flexible abstraction layer
 
 Once the API-Gateway is up and running, all TBFY services are available from a single entry point:
 
-industryCodesAPI, jurisdictionsAPI, placeholdersAPI, statementsAPI, filingsAPI, corporateGroupingsAPI, officersAPI
-
 |               service                      |                                 as resource                                           |
 |--------------------------------------------|------------------------------------------------------------------------------------|
-|    companies info      	                   |    [/companies](https://tbfy.librairy.linkeddata.es/api/companies)      |
+<!--|    companies info      	                   |    [/companies](https://tbfy.librairy.linkeddata.es/api/companies)      |-->
 |    industry codes info      	                   |    [/industryCodes](https://tbfy.librairy.linkeddata.es/api/industryCodes)      |
 |    jurisdictions info      	                   |    [/jurisdictions](https://tbfy.librairy.linkeddata.es/api/jurisdictions)      |
-|    placeholders info      	                   |    [/placeholders](https://tbfy.librairy.linkeddata.es/api/placeholders)      |
+<!--|    placeholders info      	                   |    [/placeholders](https://tbfy.librairy.linkeddata.es/api/placeholders)      |
 |    statements info      	                   |    [/statements](https://tbfy.librairy.linkeddata.es/api/statements)      |
 |    filings info      	                   |    [/filings](https://tbfy.librairy.linkeddata.es/api/filings)      |
 |    corporate groupings info      	                   |    [/corporateGroupings](https://tbfy.librairy.linkeddata.es/api/corporateGroupings)      |
-|    officers info      	                   |    [/officers](https://tbfy.librairy.linkeddata.es/api/officers)      |
+|    officers info      	                   |    [/officers](https://tbfy.librairy.linkeddata.es/api/officers)      |-->
 |    OCDS info          	                   |    [/ocds](https://tbfy.librairy.linkeddata.es/api/ocds)      |
 |    reconciliation: organization names      |    [/brands](https://tbfy.librairy.linkeddata.es/api/brands)      |
 |    knowledge-graph: SparQL Queries         |    [/triples](https://tbfy.librairy.linkeddata.es/api/triples)      |
