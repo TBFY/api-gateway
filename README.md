@@ -42,13 +42,13 @@ industryCodesAPI, jurisdictionsAPI, placeholdersAPI, statementsAPI, filingsAPI, 
 |               service                      |                                 as resource                                           |
 |--------------------------------------------|------------------------------------------------------------------------------------|
 |    companies info      	                   |    [/companies](https://tbfy.librairy.linkeddata.es/api/companies)      |
-|    industry codes info      	                   |    [/companies](https://tbfy.librairy.linkeddata.es/api/industryCodes)      |
-|    jurisdictions info      	                   |    [/companies](https://tbfy.librairy.linkeddata.es/api/jurisdictions)      |
-|    placeholders info      	                   |    [/companies](https://tbfy.librairy.linkeddata.es/api/placeholders)      |
-|    statements info      	                   |    [/companies](https://tbfy.librairy.linkeddata.es/api/statements)      |
-|    filings info      	                   |    [/companies](https://tbfy.librairy.linkeddata.es/api/filings)      |
-|    corporate groupings info      	                   |    [/companies](https://tbfy.librairy.linkeddata.es/api/corporateGroupings)      |
-|    officers info      	                   |    [/companies](https://tbfy.librairy.linkeddata.es/api/officers)      |
+|    industry codes info      	                   |    [/industryCodes](https://tbfy.librairy.linkeddata.es/api/industryCodes)      |
+|    jurisdictions info      	                   |    [/jurisdictions](https://tbfy.librairy.linkeddata.es/api/jurisdictions)      |
+|    placeholders info      	                   |    [/placeholders](https://tbfy.librairy.linkeddata.es/api/placeholders)      |
+|    statements info      	                   |    [/statements](https://tbfy.librairy.linkeddata.es/api/statements)      |
+|    filings info      	                   |    [/filings](https://tbfy.librairy.linkeddata.es/api/filings)      |
+|    corporate groupings info      	                   |    [/corporateGroupings](https://tbfy.librairy.linkeddata.es/api/corporateGroupings)      |
+|    officers info      	                   |    [/officers](https://tbfy.librairy.linkeddata.es/api/officers)      |
 |    OCDS info          	                   |    [/ocds](https://tbfy.librairy.linkeddata.es/api/ocds)      |
 |    reconciliation: organization names      |    [/brands](https://tbfy.librairy.linkeddata.es/api/brands)      |
 |    knowledge-graph: SparQL Queries         |    [/triples](https://tbfy.librairy.linkeddata.es/api/triples)      |
