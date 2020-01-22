@@ -6,6 +6,145 @@ import json
 
 endpoint = "localhost:8001"
 
+# OpenOpps APIs
+
+ocdsAPI = {
+    "name":"ocds-api",
+    "uris":"/ocds",
+    "methods":"GET",
+    "upstream_url":"https://openopps.com/api/tbfy/ocds",
+    "strip_uri":True,
+    "preserve_host":False,
+    "retries":5,
+    "upstream_connect_timeout":60000,
+    "upstream_send_timeout":60000,
+    "upstream_read_timeout":60000,
+    "https_only":False,
+    "http_if_terminated":True
+}
+
+# OpenCorporates APIs
+
+companiesAPI = {
+    "name":"companies-api",
+    "uris":"/companies",
+    "methods":"GET",
+    "upstream_url":"https://api.opencorporates.com/v0.4/companies",
+    "strip_uri":True,
+    "preserve_host":False,
+    "retries":5,
+    "upstream_connect_timeout":60000,
+    "upstream_send_timeout":60000,
+    "upstream_read_timeout":60000,
+    "https_only":False,
+    "http_if_terminated":True
+}
+
+officersAPI = {
+    "name":"officers-api",
+    "uris":"/officers",
+    "methods":"GET",
+    "upstream_url":"https://api.opencorporates.com/v0.4/officers",
+    "strip_uri":True,
+    "preserve_host":False,
+    "retries":5,
+    "upstream_connect_timeout":60000,
+    "upstream_send_timeout":60000,
+    "upstream_read_timeout":60000,
+    "https_only":False,
+    "http_if_terminated":True
+}
+
+corporateGroupingsAPI = {
+    "name":"corporateGroupings-api",
+    "uris":"/corporateGroupings",
+    "methods":"GET",
+    "upstream_url":"https://api.opencorporates.com/v0.4/corporate_groupings",
+    "strip_uri":True,
+    "preserve_host":False,
+    "retries":5,
+    "upstream_connect_timeout":60000,
+    "upstream_send_timeout":60000,
+    "upstream_read_timeout":60000,
+    "https_only":False,
+    "http_if_terminated":True
+}
+
+filingsAPI = {
+    "name":"filings-api",
+    "uris":"/filings",
+    "methods":"GET",
+    "upstream_url":"https://api.opencorporates.com/v0.4/filings",
+    "strip_uri":True,
+    "preserve_host":False,
+    "retries":5,
+    "upstream_connect_timeout":60000,
+    "upstream_send_timeout":60000,
+    "upstream_read_timeout":60000,
+    "https_only":False,
+    "http_if_terminated":True
+}
+
+statementsAPI = {
+    "name":"statements-api",
+    "uris":"/statements",
+    "methods":"GET",
+    "upstream_url":"https://api.opencorporates.com/v0.4/statements",
+    "strip_uri":True,
+    "preserve_host":False,
+    "retries":5,
+    "upstream_connect_timeout":60000,
+    "upstream_send_timeout":60000,
+    "upstream_read_timeout":60000,
+    "https_only":False,
+    "http_if_terminated":True
+}
+
+placeholdersAPI = {
+    "name":"placeholders-api",
+    "uris":"/placeholders",
+    "methods":"GET",
+    "upstream_url":"https://api.opencorporates.com/v0.4/placeholders",
+    "strip_uri":True,
+    "preserve_host":False,
+    "retries":5,
+    "upstream_connect_timeout":60000,
+    "upstream_send_timeout":60000,
+    "upstream_read_timeout":60000,
+    "https_only":False,
+    "http_if_terminated":True
+}
+
+jurisdictionsAPI = {
+    "name":"jurisdictions-api",
+    "uris":"/jurisdictions",
+    "methods":"GET",
+    "upstream_url":"https://api.opencorporates.com/v0.4/jurisdictions",
+    "strip_uri":True,
+    "preserve_host":False,
+    "retries":5,
+    "upstream_connect_timeout":60000,
+    "upstream_send_timeout":60000,
+    "upstream_read_timeout":60000,
+    "https_only":False,
+    "http_if_terminated":True
+}
+
+industryCodesAPI = {
+    "name":"industryCodes-api",
+    "uris":"/industryCodes",
+    "methods":"GET",
+    "upstream_url":"https://api.opencorporates.com/v0.4/industry_codes",
+    "strip_uri":True,
+    "preserve_host":False,
+    "retries":5,
+    "upstream_connect_timeout":60000,
+    "upstream_send_timeout":60000,
+    "upstream_read_timeout":60000,
+    "https_only":False,
+    "http_if_terminated":True
+}
+
 reconciliationAPI = {
     "name":"reconciliation-api",
     "uris":"/brands",
@@ -21,20 +160,7 @@ reconciliationAPI = {
     "http_if_terminated":True
 }
 
-sparQLEndpoint = {
-    "name":"sparql-endpoint",
-    "uris":"/sparql",
-    "methods":"GET",
-    "upstream_url":"http://data.tbfy.eu/repositories/TBFY",
-    "strip_uri":True,
-    "preserve_host":False,
-    "retries":5,
-    "upstream_connect_timeout":60000,
-    "upstream_send_timeout":60000,
-    "upstream_read_timeout":60000,
-    "https_only":False,
-    "http_if_terminated":True
-}
+# Documents API
 
 searchAPI = {
     "name":"search-documents",
@@ -51,9 +177,26 @@ searchAPI = {
     "http_if_terminated":True
 }
 
+# Knowledge-Graph APIs
+
+sparQLEndpoint = {
+    "name":"sparql-endpoint",
+    "uris":"/triples",
+    "methods":"GET",
+    "upstream_url":"http://data.tbfy.eu/repositories/TBFY",
+    "strip_uri":True,
+    "preserve_host":False,
+    "retries":5,
+    "upstream_connect_timeout":60000,
+    "upstream_send_timeout":60000,
+    "upstream_read_timeout":60000,
+    "https_only":False,
+    "http_if_terminated":True
+}
+
 kgAPI_organisation = {
     "name":"kg-organizations",
-    "uris":"/organizations",
+    "uris":"/organisation",
     "methods":"GET",
     "upstream_url":"http://tbfy.librairy.linkeddata.es/kg-api/organisation",
     "strip_uri":True,
@@ -66,24 +209,9 @@ kgAPI_organisation = {
     "http_if_terminated":True
 }
 
-kgAPI_company = {
-    "name":"kg-companies",
-    "uris":"/companies",
-    "methods":"GET",
-    "upstream_url":"http://tbfy.librairy.linkeddata.es/kg-api/company",
-    "strip_uri":True,
-    "preserve_host":False,
-    "retries":5,
-    "upstream_connect_timeout":60000,
-    "upstream_send_timeout":60000,
-    "upstream_read_timeout":60000,
-    "https_only":False,
-    "http_if_terminated":True
-}
-
 kgAPI_contract = {
     "name":"kg-contract",
-    "uris":"/contracts",
+    "uris":"/contract",
     "methods":"GET",
     "upstream_url":"http://tbfy.librairy.linkeddata.es/kg-api/contract",
     "strip_uri":True,
@@ -98,7 +226,7 @@ kgAPI_contract = {
 
 kgAPI_award = {
     "name":"kg-award",
-    "uris":"/awards",
+    "uris":"/award",
     "methods":"GET",
     "upstream_url":"http://tbfy.librairy.linkeddata.es/kg-api/award",
     "strip_uri":True,
@@ -113,7 +241,7 @@ kgAPI_award = {
 
 kgAPI_tender = {
     "name":"kg-tender",
-    "uris":"/tenders",
+    "uris":"/tender",
     "methods":"GET",
     "upstream_url":"http://tbfy.librairy.linkeddata.es/kg-api/tender",
     "strip_uri":True,
@@ -128,7 +256,7 @@ kgAPI_tender = {
 
 kgAPI_contractingProcesses = {
     "name":"kg-contractingProcesses",
-    "uris":"/contractingProcesses",
+    "uris":"/contractingProcess",
     "methods":"GET",
     "upstream_url":"http://tbfy.librairy.linkeddata.es/kg-api/contractingProcess",
     "strip_uri":True,
@@ -144,7 +272,7 @@ kgAPI_contractingProcesses = {
 
 
 
-configs = [searchAPI, kgAPI_organisation, kgAPI_company,  kgAPI_award, kgAPI_contract, kgAPI_contractingProcesses, kgAPI_tender, reconciliationAPI, sparQLEndpoint]
+configs = [searchAPI, kgAPI_organisation,  kgAPI_award, kgAPI_contract, kgAPI_contractingProcesses, kgAPI_tender, reconciliationAPI, sparQLEndpoint, companiesAPI, ocdsAPI, industryCodesAPI, jurisdictionsAPI, placeholdersAPI, statementsAPI, filingsAPI, corporateGroupingsAPI, officersAPI]
 
 
 for config in configs:

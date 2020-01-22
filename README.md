@@ -25,7 +25,7 @@ Orchestration Microservice API Gateway. It provides a flexible abstraction layer
 1. Run the API-Gateway by:
     ```
     docker-compose up -d
-	``` 
+	```
 1. That's all! It should be listening at: [http://localhost:8000](http://localhost:8000)
     ```
     {
@@ -37,16 +37,27 @@ Orchestration Microservice API Gateway. It provides a flexible abstraction layer
 
 Once the API-Gateway is up and running, all TBFY services are available from a single entry point:
 
+industryCodesAPI, jurisdictionsAPI, placeholdersAPI, statementsAPI, filingsAPI, corporateGroupingsAPI, officersAPI
+
 |               service                      |                                 as resource                                           |
 |--------------------------------------------|------------------------------------------------------------------------------------|
-|    reconciliation: organization names      |    [/brands](http://localhost:8000/brands)      |
-|    knowledge-graph: SparQL Queries         |    [/sparql](http://localhost:8000/sparql)      |
-|    search-API: documents                   |    [/documents](http://localhost:8000/documents)      |
-|    knowledge-graph-API: organizations      |    [/organizations](http://localhost:8000/organizations)      |
-|    knowledge-graph-API: contracts          |    [/contracts](http://localhost:8000/contracts)      |
-|    knowledge-graph-API: tenders            |    [/tenders](http://localhost:8000/tenders)      |
-|    knowledge-graph-API: awards             |    [/awards](http://localhost:8000/awards)      |
-|    knowledge-graph-API: contracting processes      |    [/contractingProcesses](http://localhost:8000/contractingProcesses)      |
+|    companies info      	                   |    [/companies](https://tbfy.librairy.linkeddata.es/api/companies)      |
+|    industry codes info      	                   |    [/companies](https://tbfy.librairy.linkeddata.es/api/industryCodes)      |
+|    jurisdictions info      	                   |    [/companies](https://tbfy.librairy.linkeddata.es/api/jurisdictions)      |
+|    placeholders info      	                   |    [/companies](https://tbfy.librairy.linkeddata.es/api/placeholders)      |
+|    statements info      	                   |    [/companies](https://tbfy.librairy.linkeddata.es/api/statements)      |
+|    filings info      	                   |    [/companies](https://tbfy.librairy.linkeddata.es/api/filings)      |
+|    corporate groupings info      	                   |    [/companies](https://tbfy.librairy.linkeddata.es/api/corporateGroupings)      |
+|    officers info      	                   |    [/companies](https://tbfy.librairy.linkeddata.es/api/officers)      |
+|    OCDS info          	                   |    [/ocds](https://tbfy.librairy.linkeddata.es/api/ocds)      |
+|    reconciliation: organization names      |    [/brands](https://tbfy.librairy.linkeddata.es/api/brands)      |
+|    knowledge-graph: SparQL Queries         |    [/triples](https://tbfy.librairy.linkeddata.es/api/triples)      |
+|    search-API: documents                   |    [/documents](https://tbfy.librairy.linkeddata.es/api/documents)      |
+|    knowledge-graph-API: organizations      |    [/organisation](https://tbfy.librairy.linkeddata.es/api/organisation)      |
+|    knowledge-graph-API: contracts          |    [/contract](https://tbfy.librairy.linkeddata.es/api/contract)      |
+|    knowledge-graph-API: tenders            |    [/tender](https://tbfy.librairy.linkeddata.es/api/tender)      |
+|    knowledge-graph-API: awards             |    [/award](https://tbfy.librairy.linkeddata.es/api/award)      |
+|    knowledge-graph-API: contracting processes      |    [/contractingProcess](https://tbfy.librairy.linkeddata.es/api/contractingProcess)      |
 
 
 ## Contributing
