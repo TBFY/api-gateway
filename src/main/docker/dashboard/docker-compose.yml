@@ -1,0 +1,9 @@
+version: '2.1'
+
+services:
+  kong-dashboard:
+    image: pgbi/kong-dashboard:v3.3.0
+    command: start --kong-url http://tbfy.librairy.linkeddata.es/admin-api
+    ports:
+      - "8080:8080"
+    restart: on-failure

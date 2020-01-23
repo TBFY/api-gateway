@@ -11,7 +11,7 @@ endpoint = "localhost:8001"
 ocdsAPI = {
     "name":"ocds-api",
     "uris":"/ocds",
-    "methods":"GET",
+    "methods":"GET,POST,PUT,DELETE",
     "upstream_url":"https://openopps.com/api/tbfy/ocds",
     "strip_uri":True,
     "preserve_host":False,
@@ -28,7 +28,7 @@ ocdsAPI = {
 companiesAPI = {
     "name":"companies-api",
     "uris":"/companies",
-    "methods":"GET",
+    "methods":"GET,POST,PUT,DELETE",
     "upstream_url":"https://api.opencorporates.com/v0.4/companies",
     "strip_uri":True,
     "preserve_host":False,
@@ -43,7 +43,7 @@ companiesAPI = {
 officersAPI = {
     "name":"officers-api",
     "uris":"/officers",
-    "methods":"GET",
+    "methods":"GET,POST,PUT,DELETE",
     "upstream_url":"https://api.opencorporates.com/v0.4/officers",
     "strip_uri":True,
     "preserve_host":False,
@@ -58,7 +58,7 @@ officersAPI = {
 corporateGroupingsAPI = {
     "name":"corporateGroupings-api",
     "uris":"/corporateGroupings",
-    "methods":"GET",
+    "methods":"GET,POST,PUT,DELETE",
     "upstream_url":"https://api.opencorporates.com/v0.4/corporate_groupings",
     "strip_uri":True,
     "preserve_host":False,
@@ -73,7 +73,7 @@ corporateGroupingsAPI = {
 filingsAPI = {
     "name":"filings-api",
     "uris":"/filings",
-    "methods":"GET",
+    "methods":"GET,POST,PUT,DELETE",
     "upstream_url":"https://api.opencorporates.com/v0.4/filings",
     "strip_uri":True,
     "preserve_host":False,
@@ -88,7 +88,7 @@ filingsAPI = {
 statementsAPI = {
     "name":"statements-api",
     "uris":"/statements",
-    "methods":"GET",
+    "methods":"GET,POST,PUT,DELETE",
     "upstream_url":"https://api.opencorporates.com/v0.4/statements",
     "strip_uri":True,
     "preserve_host":False,
@@ -103,7 +103,7 @@ statementsAPI = {
 placeholdersAPI = {
     "name":"placeholders-api",
     "uris":"/placeholders",
-    "methods":"GET",
+    "methods":"GET,POST,PUT,DELETE",
     "upstream_url":"https://api.opencorporates.com/v0.4/placeholders",
     "strip_uri":True,
     "preserve_host":False,
@@ -118,7 +118,7 @@ placeholdersAPI = {
 jurisdictionsAPI = {
     "name":"jurisdictions-api",
     "uris":"/jurisdictions",
-    "methods":"GET",
+    "methods":"GET,POST,PUT,DELETE",
     "upstream_url":"https://api.opencorporates.com/v0.4/jurisdictions",
     "strip_uri":True,
     "preserve_host":False,
@@ -133,7 +133,7 @@ jurisdictionsAPI = {
 industryCodesAPI = {
     "name":"industryCodes-api",
     "uris":"/industryCodes",
-    "methods":"GET",
+    "methods":"GET,POST,PUT,DELETE",
     "upstream_url":"https://api.opencorporates.com/v0.4/industry_codes",
     "strip_uri":True,
     "preserve_host":False,
@@ -148,7 +148,7 @@ industryCodesAPI = {
 reconciliationAPI = {
     "name":"reconciliation-api",
     "uris":"/brands",
-    "methods":"GET",
+    "methods":"GET,POST,PUT,DELETE",
     "upstream_url":"https://opencorporates.com/reconcile",
     "strip_uri":True,
     "preserve_host":False,
@@ -165,7 +165,7 @@ reconciliationAPI = {
 searchAPI = {
     "name":"search-documents",
     "uris":"/documents",
-    "methods":"GET",
+    "methods":"GET,POST,PUT,DELETE",
     "upstream_url":"http://tbfy.librairy.linkeddata.es/search-api/documents",
     "strip_uri":True,
     "preserve_host":False,
@@ -182,7 +182,7 @@ searchAPI = {
 sparQLEndpoint = {
     "name":"sparql-endpoint",
     "uris":"/triples",
-    "methods":"GET",
+    "methods":"GET,POST,PUT,DELETE",
     "upstream_url":"http://data.tbfy.eu/repositories/TBFY",
     "strip_uri":True,
     "preserve_host":False,
@@ -197,7 +197,7 @@ sparQLEndpoint = {
 kgAPI_organisation = {
     "name":"kg-organizations",
     "uris":"/organisation",
-    "methods":"GET",
+    "methods":"GET,POST,PUT,DELETE",
     "upstream_url":"http://tbfy.librairy.linkeddata.es/kg-api/organisation",
     "strip_uri":True,
     "preserve_host":False,
@@ -212,7 +212,7 @@ kgAPI_organisation = {
 kgAPI_contract = {
     "name":"kg-contract",
     "uris":"/contract",
-    "methods":"GET",
+    "methods":"GET,POST,PUT,DELETE",
     "upstream_url":"http://tbfy.librairy.linkeddata.es/kg-api/contract",
     "strip_uri":True,
     "preserve_host":False,
@@ -227,7 +227,7 @@ kgAPI_contract = {
 kgAPI_award = {
     "name":"kg-award",
     "uris":"/award",
-    "methods":"GET",
+    "methods":"GET,POST,PUT,DELETE",
     "upstream_url":"http://tbfy.librairy.linkeddata.es/kg-api/award",
     "strip_uri":True,
     "preserve_host":False,
@@ -242,7 +242,7 @@ kgAPI_award = {
 kgAPI_tender = {
     "name":"kg-tender",
     "uris":"/tender",
-    "methods":"GET",
+    "methods":"GET,POST,PUT,DELETE",
     "upstream_url":"http://tbfy.librairy.linkeddata.es/kg-api/tender",
     "strip_uri":True,
     "preserve_host":False,
@@ -257,7 +257,7 @@ kgAPI_tender = {
 kgAPI_contractingProcesses = {
     "name":"kg-contractingProcesses",
     "uris":"/contractingProcess",
-    "methods":"GET",
+    "methods":"GET,POST,PUT,DELETE",
     "upstream_url":"http://tbfy.librairy.linkeddata.es/kg-api/contractingProcess",
     "strip_uri":True,
     "preserve_host":False,
