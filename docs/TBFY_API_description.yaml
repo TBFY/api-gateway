@@ -70,12 +70,24 @@ parameters:
     description: language
     required: false
     type: string
+  terms:
+    in: query
+    name: terms
+    description: single words
+    required: false
+    type: string
   text:
     in: query
     name: text
     description: text
     required: false
     type: string
+  text_bool:
+    in: query
+    name: text
+    description: Result showing the text or not.
+    required: false
+    type: boolean
   source:
     in: query
     name: source
@@ -186,6 +198,12 @@ parameters:
     name: id
     in: path
     description: award identifier
+    required: true
+    type: string
+  document_id:
+    name: id
+    in: path
+    description: document identifier
     required: true
     type: string
   tender_id:
@@ -916,6 +934,57 @@ paths:
           description: Invalid ID supplied
         '404':
           description: Document not found
+  '/documents/{id}':
+    get:
+      tags:
+        - documents
+      summary: Find document by ID
+      description: Returns a single document
+      operationId: getDocumentsByID
+      produces:
+        - application/json
+      parameters:
+        - $ref: '#/parameters/document_id'
+        - $ref: '#/parameters/text_bool'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/SearchAPIDocumentsId'
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Document not found
+  '/documents/{id}/items':
+    get:
+      tags:
+        - documents
+      summary: List of similar documents
+      description: Returns a list of similiar documents to one previously given
+      operationId: getItemsDocumentsByID
+      produces:
+        - application/json
+      parameters:
+        - $ref: '#/parameters/document_id'
+        - $ref: '#/parameters/date'
+        - $ref: '#/parameters/lang'
+        - $ref: '#/parameters/name'
+        - $ref: '#/parameters/source'
+        - $ref: '#/parameters/terms'
+        - $ref: '#/parameters/size'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/SearchAPIDocumentsItems'
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Document not found
   '/brands':
     get:
       tags:
@@ -1038,6 +1107,31 @@ definitions:
         type: string
       source:
         type: string
+  SearchAPIDocumentsId:
+    type: object
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+      text:
+        type: string
+      source:
+        type: string
+      date:
+        type: string
+        format: date-time
+      tags:
+        type: string
+  SearchAPIDocumentsItems:
+    type: object
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+      score:
+        type: integer
   ContractingProcess:
     type: object
     properties:

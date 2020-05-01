@@ -1638,6 +1638,116 @@
         }
       }
     },
+    "/documents/{id}" : {
+      "get" : {
+        "tags" : [ "documents" ],
+        "summary" : "Find document by ID",
+        "description" : "Returns a single document",
+        "operationId" : "getDocumentsByID",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "document identifier",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "text",
+          "in" : "query",
+          "description" : "Result showing the text or not.",
+          "required" : false,
+          "type" : "boolean"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/SearchAPIDocumentsId"
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid ID supplied"
+          },
+          "404" : {
+            "description" : "Document not found"
+          }
+        }
+      }
+    },
+    "/documents/{id}/items" : {
+      "get" : {
+        "tags" : [ "documents" ],
+        "summary" : "List of similar documents",
+        "description" : "Returns a list of similiar documents to one previously given",
+        "operationId" : "getItemsDocumentsByID",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "document identifier",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "date",
+          "in" : "query",
+          "description" : "date - ISO 8601",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "lang",
+          "in" : "query",
+          "description" : "language",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "name",
+          "in" : "query",
+          "description" : "name",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "source",
+          "in" : "query",
+          "description" : "source",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "terms",
+          "in" : "query",
+          "description" : "single words",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "size",
+          "in" : "query",
+          "description" : "size",
+          "required" : false,
+          "type" : "integer",
+          "default" : 10,
+          "format" : "int 64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/SearchAPIDocumentsItems"
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid ID supplied"
+          },
+          "404" : {
+            "description" : "Document not found"
+          }
+        }
+      }
+    },
     "/brands" : {
       "get" : {
         "tags" : [ "reconciliation" ],
@@ -1811,6 +1921,44 @@
         },
         "source" : {
           "type" : "string"
+        }
+      }
+    },
+    "SearchAPIDocumentsId" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "text" : {
+          "type" : "string"
+        },
+        "source" : {
+          "type" : "string"
+        },
+        "date" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "tags" : {
+          "type" : "string"
+        }
+      }
+    },
+    "SearchAPIDocumentsItems" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "score" : {
+          "type" : "integer"
         }
       }
     },
@@ -2344,12 +2492,26 @@
       "required" : false,
       "type" : "string"
     },
+    "terms" : {
+      "name" : "terms",
+      "in" : "query",
+      "description" : "single words",
+      "required" : false,
+      "type" : "string"
+    },
     "text" : {
       "name" : "text",
       "in" : "query",
       "description" : "text",
       "required" : false,
       "type" : "string"
+    },
+    "text_bool" : {
+      "name" : "text",
+      "in" : "query",
+      "description" : "Result showing the text or not.",
+      "required" : false,
+      "type" : "boolean"
     },
     "source" : {
       "name" : "source",
@@ -2460,6 +2622,13 @@
       "name" : "id",
       "in" : "path",
       "description" : "award identifier",
+      "required" : true,
+      "type" : "string"
+    },
+    "document_id" : {
+      "name" : "id",
+      "in" : "path",
+      "description" : "document identifier",
       "required" : true,
       "type" : "string"
     },
