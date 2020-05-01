@@ -939,7 +939,7 @@ paths:
           description: Invalid ID supplied
         '404':
           description: Organisation not found
-  '/triple':
+  '/triples':
     get:
       tags:
         - SPARQL endpoint
@@ -956,7 +956,7 @@ paths:
         '400':
           description: Invalid ID supplied
         '404':
-          description: Tender not found
+          description: KG not found
   '/jurisdictions':
     get:
       tags:

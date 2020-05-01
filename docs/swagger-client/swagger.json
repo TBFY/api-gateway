@@ -1677,7 +1677,7 @@
         }
       }
     },
-    "/triple" : {
+    "/triples" : {
       "get" : {
         "tags" : [ "SPARQL endpoint" ],
         "summary" : "Access to the SPARQL endpoint",
@@ -1699,7 +1699,7 @@
             "description" : "Invalid ID supplied"
           },
           "404" : {
-            "description" : "Tender not found"
+            "description" : "KG not found"
           }
         }
       }
