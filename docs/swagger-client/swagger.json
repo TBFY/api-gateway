@@ -1,0 +1,2522 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "API documentation.",
+    "version" : "1.0.0",
+    "title" : "Swagger TheyBuyForYou API",
+    "termsOfService" : "http://swagger.io/terms/",
+    "contact" : {
+      "email" : "fyedro@fi.upm.es"
+    },
+    "license" : {
+      "name" : "Apache 2.0",
+      "url" : "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host" : "tbfy.librairy.linkeddata.es",
+  "basePath" : "/api",
+  "schemes" : [ "https", "http" ],
+  "paths" : {
+    "/contractingProcess" : {
+      "get" : {
+        "tags" : [ "contractingProcess" ],
+        "summary" : "List of contracting processes",
+        "description" : "Returns a list of contracting processes from the TheyBuyForYou knowledge graph",
+        "operationId" : "getContractingProcess",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "end_dt",
+          "in" : "query",
+          "description" : "end date - ISO 8601",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "start_dt",
+          "in" : "query",
+          "description" : "start date - ISO 8601",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "code",
+          "in" : "query",
+          "description" : "classification code",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "size",
+          "in" : "query",
+          "description" : "size",
+          "required" : false,
+          "type" : "integer",
+          "default" : 10,
+          "format" : "int 64"
+        }, {
+          "name" : "offset",
+          "in" : "query",
+          "description" : "offset",
+          "required" : false,
+          "type" : "integer",
+          "default" : 0,
+          "format" : "int 64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/ListContractingProcess"
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid ID supplied"
+          },
+          "404" : {
+            "description" : "Contracting process not found"
+          }
+        }
+      }
+    },
+    "/contractingProcess/{id}" : {
+      "get" : {
+        "tags" : [ "contractingProcess" ],
+        "summary" : "Find contracting process by ID",
+        "description" : "Returns a single contracting process from the TheyBuyForYou knowledge graph",
+        "operationId" : "getContractingProcessById",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "contrating process identifier",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "size",
+          "in" : "query",
+          "description" : "size",
+          "required" : false,
+          "type" : "integer",
+          "default" : 10,
+          "format" : "int 64"
+        }, {
+          "name" : "offset",
+          "in" : "query",
+          "description" : "offset",
+          "required" : false,
+          "type" : "integer",
+          "default" : 0,
+          "format" : "int 64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/ContractingProcess"
+            }
+          },
+          "400" : {
+            "description" : "Invalid ID supplied"
+          },
+          "404" : {
+            "description" : "Contracting process not found"
+          }
+        }
+      }
+    },
+    "/contractingProcess/{id}/award" : {
+      "get" : {
+        "tags" : [ "contractingProcess" ],
+        "summary" : "List of awards of a contracting process",
+        "description" : "Returns the list of awards of a contracting process from the TheyBuyForYou knowledge graph",
+        "operationId" : "getAwardContractingProcessById",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "contrating process identifier",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "title",
+          "in" : "query",
+          "description" : "title",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "description",
+          "in" : "query",
+          "description" : "description",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "status",
+          "in" : "query",
+          "description" : "award status",
+          "required" : false,
+          "type" : "string",
+          "enum" : [ "pending", "active", "cancelled", "unsuccessful" ]
+        }, {
+          "name" : "end_dt",
+          "in" : "query",
+          "description" : "end date - ISO 8601",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "start_dt",
+          "in" : "query",
+          "description" : "start date - ISO 8601",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "size",
+          "in" : "query",
+          "description" : "size",
+          "required" : false,
+          "type" : "integer",
+          "default" : 10,
+          "format" : "int 64"
+        }, {
+          "name" : "offset",
+          "in" : "query",
+          "description" : "offset",
+          "required" : false,
+          "type" : "integer",
+          "default" : 0,
+          "format" : "int 64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/ListAward"
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid ID supplied"
+          },
+          "404" : {
+            "description" : "Contracting process not found"
+          }
+        }
+      }
+    },
+    "/contractingProcess/{id}/buyer" : {
+      "get" : {
+        "tags" : [ "contractingProcess" ],
+        "summary" : "List of buyers of a contracting process",
+        "description" : "Returns the list of buyers of a contracting process from the TheyBuyForYou knowledge graph",
+        "operationId" : "getBuyerContractingProcessById",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "contrating process identifier",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "size",
+          "in" : "query",
+          "description" : "size",
+          "required" : false,
+          "type" : "integer",
+          "default" : 10,
+          "format" : "int 64"
+        }, {
+          "name" : "offset",
+          "in" : "query",
+          "description" : "offset",
+          "required" : false,
+          "type" : "integer",
+          "default" : 0,
+          "format" : "int 64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Buyer"
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid ID supplied"
+          },
+          "404" : {
+            "description" : "Contracting process not found"
+          }
+        }
+      }
+    },
+    "/contractingProcess/{id}/contract" : {
+      "get" : {
+        "tags" : [ "contractingProcess" ],
+        "summary" : "List of contracts of a contracting process",
+        "description" : "Returns the list of contracts of a contracting process from the TheyBuyForYou knowledge graph",
+        "operationId" : "getContractContractingProcessById",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "contrating process identifier",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "size",
+          "in" : "query",
+          "description" : "size",
+          "required" : false,
+          "type" : "integer",
+          "default" : 10,
+          "format" : "int 64"
+        }, {
+          "name" : "offset",
+          "in" : "query",
+          "description" : "offset",
+          "required" : false,
+          "type" : "integer",
+          "default" : 0,
+          "format" : "int 64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/ListContract"
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid ID supplied"
+          },
+          "404" : {
+            "description" : "Contracting process not found"
+          }
+        }
+      }
+    },
+    "/contractingProcess/{id}/tender" : {
+      "get" : {
+        "tags" : [ "contractingProcess" ],
+        "summary" : "List of tenders of a contracting process",
+        "description" : "Returns the list of tenders of a contracting process from the TheyBuyForYou knowledge graph",
+        "operationId" : "getTenderContractingProcessById",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "contrating process identifier",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "title",
+          "in" : "query",
+          "description" : "title",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "description",
+          "in" : "query",
+          "description" : "description",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "status",
+          "in" : "query",
+          "description" : "tender status",
+          "required" : false,
+          "type" : "string",
+          "enum" : [ "planning", "planned", "active", "cancelled", "unsuccessful", "completed", "withdrawn" ]
+        }, {
+          "name" : "size",
+          "in" : "query",
+          "description" : "size",
+          "required" : false,
+          "type" : "integer",
+          "default" : 10,
+          "format" : "int 64"
+        }, {
+          "name" : "offset",
+          "in" : "query",
+          "description" : "offset",
+          "required" : false,
+          "type" : "integer",
+          "default" : 0,
+          "format" : "int 64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/ListTender"
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid ID supplied"
+          },
+          "404" : {
+            "description" : "Contracting process not found"
+          }
+        }
+      }
+    },
+    "/contract" : {
+      "get" : {
+        "tags" : [ "contract" ],
+        "summary" : "List of contracts",
+        "description" : "Returns a list of contracts from the TheyBuyForYou knowledge graph",
+        "operationId" : "getContract",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "size",
+          "in" : "query",
+          "description" : "size",
+          "required" : false,
+          "type" : "integer",
+          "default" : 10,
+          "format" : "int 64"
+        }, {
+          "name" : "offset",
+          "in" : "query",
+          "description" : "offset",
+          "required" : false,
+          "type" : "integer",
+          "default" : 0,
+          "format" : "int 64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/ListContract"
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid ID supplied"
+          },
+          "404" : {
+            "description" : "Contract process not found"
+          }
+        }
+      }
+    },
+    "/contract/{id}" : {
+      "get" : {
+        "tags" : [ "contract" ],
+        "summary" : "Find contract by ID",
+        "description" : "Returns a single contract from the TheyBuyForYou knowledge graph",
+        "operationId" : "getContractById",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "contract identifier",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "size",
+          "in" : "query",
+          "description" : "size",
+          "required" : false,
+          "type" : "integer",
+          "default" : 10,
+          "format" : "int 64"
+        }, {
+          "name" : "offset",
+          "in" : "query",
+          "description" : "offset",
+          "required" : false,
+          "type" : "integer",
+          "default" : 0,
+          "format" : "int 64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/Contract"
+            }
+          },
+          "400" : {
+            "description" : "Invalid ID supplied"
+          },
+          "404" : {
+            "description" : "Contract not found"
+          }
+        }
+      }
+    },
+    "/contract/{id}/amendment" : {
+      "get" : {
+        "tags" : [ "contract" ],
+        "summary" : "List of amendments of a contract",
+        "description" : "Returns the list of amendments of a contract from the TheyBuyForYou knowledge graph",
+        "operationId" : "getAmendmentContractById",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "contract identifier",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "size",
+          "in" : "query",
+          "description" : "size",
+          "required" : false,
+          "type" : "integer",
+          "default" : 10,
+          "format" : "int 64"
+        }, {
+          "name" : "offset",
+          "in" : "query",
+          "description" : "offset",
+          "required" : false,
+          "type" : "integer",
+          "default" : 0,
+          "format" : "int 64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Amendment"
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid ID supplied"
+          },
+          "404" : {
+            "description" : "Contract not found"
+          }
+        }
+      }
+    },
+    "/contract/{id}/buyer" : {
+      "get" : {
+        "tags" : [ "contract" ],
+        "summary" : "List of buyers of a contract",
+        "description" : "Returns the list of buyers of a contract from the TheyBuyForYou knowledge graph",
+        "operationId" : "getBuyerContractById",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "contract identifier",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "size",
+          "in" : "query",
+          "description" : "size",
+          "required" : false,
+          "type" : "integer",
+          "default" : 10,
+          "format" : "int 64"
+        }, {
+          "name" : "offset",
+          "in" : "query",
+          "description" : "offset",
+          "required" : false,
+          "type" : "integer",
+          "default" : 0,
+          "format" : "int 64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Buyer"
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid ID supplied"
+          },
+          "404" : {
+            "description" : "Contract not found"
+          }
+        }
+      }
+    },
+    "/contract/{id}/document" : {
+      "get" : {
+        "tags" : [ "contract" ],
+        "summary" : "List of documents of a contract",
+        "description" : "Returns the list of documents of a contract from the TheyBuyForYou knowledge graph",
+        "operationId" : "getDocumentContractById",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "contract identifier",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "size",
+          "in" : "query",
+          "description" : "size",
+          "required" : false,
+          "type" : "integer",
+          "default" : 10,
+          "format" : "int 64"
+        }, {
+          "name" : "offset",
+          "in" : "query",
+          "description" : "offset",
+          "required" : false,
+          "type" : "integer",
+          "default" : 0,
+          "format" : "int 64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Document"
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid ID supplied"
+          },
+          "404" : {
+            "description" : "Contract not found"
+          }
+        }
+      }
+    },
+    "/contract/{id}/item" : {
+      "get" : {
+        "tags" : [ "contract" ],
+        "summary" : "List of items of a contract",
+        "description" : "Returns the list of items of a contract from the TheyBuyForYou knowledge graph",
+        "operationId" : "getItemContractById",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "contract identifier",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "size",
+          "in" : "query",
+          "description" : "size",
+          "required" : false,
+          "type" : "integer",
+          "default" : 10,
+          "format" : "int 64"
+        }, {
+          "name" : "offset",
+          "in" : "query",
+          "description" : "offset",
+          "required" : false,
+          "type" : "integer",
+          "default" : 0,
+          "format" : "int 64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Item"
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid ID supplied"
+          },
+          "404" : {
+            "description" : "Contract not found"
+          }
+        }
+      }
+    },
+    "/organisation" : {
+      "get" : {
+        "tags" : [ "organisation" ],
+        "summary" : "List of organisations",
+        "description" : "Returns a list of organiations from the TheyBuyForYou knowledge graph",
+        "operationId" : "getOrganisation",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "name",
+          "in" : "query",
+          "description" : "name",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "jurisdiction",
+          "in" : "query",
+          "description" : "jurisdiction",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "size",
+          "in" : "query",
+          "description" : "size",
+          "required" : false,
+          "type" : "integer",
+          "default" : 10,
+          "format" : "int 64"
+        }, {
+          "name" : "offset",
+          "in" : "query",
+          "description" : "offset",
+          "required" : false,
+          "type" : "integer",
+          "default" : 0,
+          "format" : "int 64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/ListOrganisation"
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid ID supplied"
+          },
+          "404" : {
+            "description" : "Organisation not found"
+          }
+        }
+      }
+    },
+    "/organisation/{id}" : {
+      "get" : {
+        "tags" : [ "organisation" ],
+        "summary" : "Find an organisation by ID",
+        "description" : "Returns a single organisation from the TheyBuyForYou knowledge graph",
+        "operationId" : "getOrganisationById",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "organisation identifier",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "size",
+          "in" : "query",
+          "description" : "size",
+          "required" : false,
+          "type" : "integer",
+          "default" : 10,
+          "format" : "int 64"
+        }, {
+          "name" : "offset",
+          "in" : "query",
+          "description" : "offset",
+          "required" : false,
+          "type" : "integer",
+          "default" : 0,
+          "format" : "int 64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/Organisation"
+            }
+          },
+          "400" : {
+            "description" : "Invalid ID supplied"
+          },
+          "404" : {
+            "description" : "Organisation not found"
+          }
+        }
+      }
+    },
+    "/organisation/{id}/contractingProcess" : {
+      "get" : {
+        "tags" : [ "organisation" ],
+        "summary" : "List of contracting processes of an organisation",
+        "description" : "Returns the list of contracting processes of an organisation from the TheyBuyForYou knowledge graph",
+        "operationId" : "getContractingProcessOrganisationById",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "organisation identifier",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "start_dt",
+          "in" : "query",
+          "description" : "start date - ISO 8601",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "end_dt",
+          "in" : "query",
+          "description" : "end date - ISO 8601",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "size",
+          "in" : "query",
+          "description" : "size",
+          "required" : false,
+          "type" : "integer",
+          "default" : 10,
+          "format" : "int 64"
+        }, {
+          "name" : "offset",
+          "in" : "query",
+          "description" : "offset",
+          "required" : false,
+          "type" : "integer",
+          "default" : 0,
+          "format" : "int 64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/ListContractingProcess"
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid ID supplied"
+          },
+          "404" : {
+            "description" : "Organisation not found"
+          }
+        }
+      }
+    },
+    "/organisation/{id}/award" : {
+      "get" : {
+        "tags" : [ "organisation" ],
+        "summary" : "List of awards of an organisation",
+        "description" : "Returns the list of awards of an organisation from the TheyBuyForYou knowledge graph",
+        "operationId" : "getAwardOrganisationById",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "organisation identifier",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "status",
+          "in" : "query",
+          "description" : "award status",
+          "required" : false,
+          "type" : "string",
+          "enum" : [ "pending", "active", "cancelled", "unsuccessful" ]
+        }, {
+          "name" : "title",
+          "in" : "query",
+          "description" : "title",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "description",
+          "in" : "query",
+          "description" : "description",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "end_dt",
+          "in" : "query",
+          "description" : "end date - ISO 8601",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "start_dt",
+          "in" : "query",
+          "description" : "start date - ISO 8601",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "size",
+          "in" : "query",
+          "description" : "size",
+          "required" : false,
+          "type" : "integer",
+          "default" : 10,
+          "format" : "int 64"
+        }, {
+          "name" : "offset",
+          "in" : "query",
+          "description" : "offset",
+          "required" : false,
+          "type" : "integer",
+          "default" : 0,
+          "format" : "int 64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/ListAward"
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid ID supplied"
+          },
+          "404" : {
+            "description" : "Organisation not found"
+          }
+        }
+      }
+    },
+    "/award" : {
+      "get" : {
+        "tags" : [ "award" ],
+        "summary" : "List of awards",
+        "description" : "Returns a list of awards from the TheyBuyForYou knowledge graph",
+        "operationId" : "getAward",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "title",
+          "in" : "query",
+          "description" : "title",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "description",
+          "in" : "query",
+          "description" : "description",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "status",
+          "in" : "query",
+          "description" : "award status",
+          "required" : false,
+          "type" : "string",
+          "enum" : [ "pending", "active", "cancelled", "unsuccessful" ]
+        }, {
+          "name" : "end_dt",
+          "in" : "query",
+          "description" : "end date - ISO 8601",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "start_dt",
+          "in" : "query",
+          "description" : "start date - ISO 8601",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "size",
+          "in" : "query",
+          "description" : "size",
+          "required" : false,
+          "type" : "integer",
+          "default" : 10,
+          "format" : "int 64"
+        }, {
+          "name" : "offset",
+          "in" : "query",
+          "description" : "offset",
+          "required" : false,
+          "type" : "integer",
+          "default" : 0,
+          "format" : "int 64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/ListAward"
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid ID supplied"
+          },
+          "404" : {
+            "description" : "Award not found"
+          }
+        }
+      }
+    },
+    "/award/{id}" : {
+      "get" : {
+        "tags" : [ "award" ],
+        "summary" : "Find an award by ID",
+        "description" : "Returns a single award from the TheyBuyForYou knowledge graph",
+        "operationId" : "getAwardById",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "award identifier",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "size",
+          "in" : "query",
+          "description" : "size",
+          "required" : false,
+          "type" : "integer",
+          "default" : 10,
+          "format" : "int 64"
+        }, {
+          "name" : "offset",
+          "in" : "query",
+          "description" : "offset",
+          "required" : false,
+          "type" : "integer",
+          "default" : 0,
+          "format" : "int 64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/Award"
+            }
+          },
+          "400" : {
+            "description" : "Invalid ID supplied"
+          },
+          "404" : {
+            "description" : "Award not found"
+          }
+        }
+      }
+    },
+    "/award/{id}/amendment" : {
+      "get" : {
+        "tags" : [ "award" ],
+        "summary" : "List of amendments of an award",
+        "description" : "Returns the list of amendments of an award from the TheyBuyForYou knowledge graph",
+        "operationId" : "getsAmendmentAwardById",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "award identifier",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "size",
+          "in" : "query",
+          "description" : "size",
+          "required" : false,
+          "type" : "integer",
+          "default" : 10,
+          "format" : "int 64"
+        }, {
+          "name" : "offset",
+          "in" : "query",
+          "description" : "offset",
+          "required" : false,
+          "type" : "integer",
+          "default" : 0,
+          "format" : "int 64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Amendment"
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid ID supplied"
+          },
+          "404" : {
+            "description" : "Award not found"
+          }
+        }
+      }
+    },
+    "/award/{id}/item" : {
+      "get" : {
+        "tags" : [ "award" ],
+        "summary" : "List of items of an award",
+        "description" : "Returns the list of items of an award from the TheyBuyForYou knowledge graph",
+        "operationId" : "getItemAwardById",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "award identifier",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "size",
+          "in" : "query",
+          "description" : "size",
+          "required" : false,
+          "type" : "integer",
+          "default" : 10,
+          "format" : "int 64"
+        }, {
+          "name" : "offset",
+          "in" : "query",
+          "description" : "offset",
+          "required" : false,
+          "type" : "integer",
+          "default" : 0,
+          "format" : "int 64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Item"
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid ID supplied"
+          },
+          "404" : {
+            "description" : "Award not found"
+          }
+        }
+      }
+    },
+    "/award/{id}/supplier" : {
+      "get" : {
+        "tags" : [ "award" ],
+        "summary" : "List of suppliers of an award",
+        "description" : "Returns the list of suppliers of an award from the TheyBuyForYou knowledge graph",
+        "operationId" : "getSupplierAwardById",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "award identifier",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "size",
+          "in" : "query",
+          "description" : "size",
+          "required" : false,
+          "type" : "integer",
+          "default" : 10,
+          "format" : "int 64"
+        }, {
+          "name" : "offset",
+          "in" : "query",
+          "description" : "offset",
+          "required" : false,
+          "type" : "integer",
+          "default" : 0,
+          "format" : "int 64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Supplier"
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid ID supplied"
+          },
+          "404" : {
+            "description" : "Award not found"
+          }
+        }
+      }
+    },
+    "/award/{id}/document" : {
+      "get" : {
+        "tags" : [ "award" ],
+        "summary" : "List of documents of an award",
+        "description" : "Returns the list of documents of an award from the TheyBuyForYou knowledge graph",
+        "operationId" : "getDocumentAwardById",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "award identifier",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "size",
+          "in" : "query",
+          "description" : "size",
+          "required" : false,
+          "type" : "integer",
+          "default" : 10,
+          "format" : "int 64"
+        }, {
+          "name" : "offset",
+          "in" : "query",
+          "description" : "offset",
+          "required" : false,
+          "type" : "integer",
+          "default" : 0,
+          "format" : "int 64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Document"
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid ID supplied"
+          },
+          "404" : {
+            "description" : "Award not found"
+          }
+        }
+      }
+    },
+    "/tender" : {
+      "get" : {
+        "tags" : [ "tender" ],
+        "summary" : "List of tenders",
+        "description" : "Returns a list of tenders from the TheyBuyForYou knowledge graph",
+        "operationId" : "getTender",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "title",
+          "in" : "query",
+          "description" : "title",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "description",
+          "in" : "query",
+          "description" : "description",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "status",
+          "in" : "query",
+          "description" : "tender status",
+          "required" : false,
+          "type" : "string",
+          "enum" : [ "planning", "planned", "active", "cancelled", "unsuccessful", "completed", "withdrawn" ]
+        }, {
+          "name" : "size",
+          "in" : "query",
+          "description" : "size",
+          "required" : false,
+          "type" : "integer",
+          "default" : 10,
+          "format" : "int 64"
+        }, {
+          "name" : "offset",
+          "in" : "query",
+          "description" : "offset",
+          "required" : false,
+          "type" : "integer",
+          "default" : 0,
+          "format" : "int 64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/ListTender"
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid ID supplied"
+          },
+          "404" : {
+            "description" : "Tender not found"
+          }
+        }
+      }
+    },
+    "/tender/{id}" : {
+      "get" : {
+        "tags" : [ "tender" ],
+        "summary" : "Find tender by ID",
+        "description" : "Returns a single tender from the TheyBuyForYou knowledge graph",
+        "operationId" : "getTenderById",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "tender idenrifier",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "size",
+          "in" : "query",
+          "description" : "size",
+          "required" : false,
+          "type" : "integer",
+          "default" : 10,
+          "format" : "int 64"
+        }, {
+          "name" : "offset",
+          "in" : "query",
+          "description" : "offset",
+          "required" : false,
+          "type" : "integer",
+          "default" : 0,
+          "format" : "int 64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/Tender"
+            }
+          },
+          "400" : {
+            "description" : "Invalid ID supplied"
+          },
+          "404" : {
+            "description" : "Tender not found"
+          }
+        }
+      }
+    },
+    "/tender/{id}/item" : {
+      "get" : {
+        "tags" : [ "tender" ],
+        "summary" : "List of items of a tender",
+        "description" : "Returns the list of items of a tender from the TheyBuyForYou knowledge graph",
+        "operationId" : "getItemTenderById",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "tender idenrifier",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "size",
+          "in" : "query",
+          "description" : "size",
+          "required" : false,
+          "type" : "integer",
+          "default" : 10,
+          "format" : "int 64"
+        }, {
+          "name" : "offset",
+          "in" : "query",
+          "description" : "offset",
+          "required" : false,
+          "type" : "integer",
+          "default" : 0,
+          "format" : "int 64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Item"
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid ID supplied"
+          },
+          "404" : {
+            "description" : "Tender not found"
+          }
+        }
+      }
+    },
+    "/tender/{id}/contractingProcess" : {
+      "get" : {
+        "tags" : [ "tender" ],
+        "summary" : "List of contracting processes of a tender",
+        "description" : "Returns the list of contracting processes of a tender from the TheyBuyForYou knowledge graph",
+        "operationId" : "getContractingProcessTenderById",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "tender idenrifier",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "size",
+          "in" : "query",
+          "description" : "size",
+          "required" : false,
+          "type" : "integer",
+          "default" : 10,
+          "format" : "int 64"
+        }, {
+          "name" : "offset",
+          "in" : "query",
+          "description" : "offset",
+          "required" : false,
+          "type" : "integer",
+          "default" : 0,
+          "format" : "int 64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/ListContractingProcess"
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid ID supplied"
+          },
+          "404" : {
+            "description" : "Tender not found"
+          }
+        }
+      }
+    },
+    "/tender/{id}/document" : {
+      "get" : {
+        "tags" : [ "tender" ],
+        "summary" : "List of documents of a tender",
+        "description" : "Returns the list of documents of a tender from the TheyBuyForYou knowledge graph",
+        "operationId" : "getDocumentTenderById",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "tender idenrifier",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "size",
+          "in" : "query",
+          "description" : "size",
+          "required" : false,
+          "type" : "integer",
+          "default" : 10,
+          "format" : "int 64"
+        }, {
+          "name" : "offset",
+          "in" : "query",
+          "description" : "offset",
+          "required" : false,
+          "type" : "integer",
+          "default" : 0,
+          "format" : "int 64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Document"
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid ID supplied"
+          },
+          "404" : {
+            "description" : "Tender not found"
+          }
+        }
+      }
+    },
+    "/supplier" : {
+      "get" : {
+        "tags" : [ "supplier" ],
+        "summary" : "List of suppliers",
+        "description" : "Returns  the list of suppliers from the TheyBuyForYou knowledge graph",
+        "operationId" : "getSupplier",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "name",
+          "in" : "query",
+          "description" : "name",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "jurisdiction",
+          "in" : "query",
+          "description" : "jurisdiction",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "status",
+          "in" : "query",
+          "description" : "award status",
+          "required" : false,
+          "type" : "string",
+          "enum" : [ "pending", "active", "cancelled", "unsuccessful" ]
+        }, {
+          "name" : "title",
+          "in" : "query",
+          "description" : "title",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "description",
+          "in" : "query",
+          "description" : "description",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "minemployees",
+          "in" : "query",
+          "description" : "minimum number of employees",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int 64"
+        }, {
+          "name" : "currency",
+          "in" : "query",
+          "description" : "currency",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "start_dt",
+          "in" : "query",
+          "description" : "start date - ISO 8601",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "end_dt",
+          "in" : "query",
+          "description" : "end date - ISO 8601",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "size",
+          "in" : "query",
+          "description" : "size",
+          "required" : false,
+          "type" : "integer",
+          "default" : 10,
+          "format" : "int 64"
+        }, {
+          "name" : "offset",
+          "in" : "query",
+          "description" : "offset",
+          "required" : false,
+          "type" : "integer",
+          "default" : 0,
+          "format" : "int 64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/ListTender"
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid ID supplied"
+          },
+          "404" : {
+            "description" : "Tender not found"
+          }
+        }
+      }
+    },
+    "/documents" : {
+      "get" : {
+        "tags" : [ "documents" ],
+        "summary" : "List of documents",
+        "description" : "Returns  the list of documents of prubic procurement and spending data",
+        "operationId" : "getDocuments",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "cursor",
+          "in" : "query",
+          "description" : "cursor",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "date",
+          "in" : "query",
+          "description" : "date - ISO 8601",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "lang",
+          "in" : "query",
+          "description" : "language",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "name",
+          "in" : "query",
+          "description" : "name",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "size",
+          "in" : "query",
+          "description" : "size",
+          "required" : false,
+          "type" : "integer",
+          "default" : 10,
+          "format" : "int 64"
+        }, {
+          "name" : "source",
+          "in" : "query",
+          "description" : "source",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "text",
+          "in" : "query",
+          "description" : "text",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/SearchAPIDocuments"
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid ID supplied"
+          },
+          "404" : {
+            "description" : "Tender not found"
+          }
+        }
+      }
+    },
+    "/brands" : {
+      "get" : {
+        "tags" : [ "reconciliation" ],
+        "summary" : "List of reconcialiation",
+        "description" : "Returns the list of the OpenCorporates reconciliation service",
+        "operationId" : "getBrands",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "jurisdiction",
+          "in" : "path",
+          "description" : "jurisdiction",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "text",
+          "in" : "query",
+          "description" : "text",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "size",
+          "in" : "query",
+          "description" : "size",
+          "required" : false,
+          "type" : "integer",
+          "default" : 10,
+          "format" : "int 64"
+        }, {
+          "name" : "offset",
+          "in" : "query",
+          "description" : "offset",
+          "required" : false,
+          "type" : "integer",
+          "default" : 0,
+          "format" : "int 64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Reconciliation"
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid ID supplied"
+          },
+          "404" : {
+            "description" : "Tender not found"
+          }
+        }
+      }
+    },
+    "/triple" : {
+      "get" : {
+        "tags" : [ "SPARQL endpoing" ],
+        "summary" : "Access to the SPARQL endpoint",
+        "description" : "Returns a query directly from the TheyBuyForYou knowledge graph",
+        "operationId" : "getSparql",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "query",
+          "in" : "query",
+          "description" : "query",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          },
+          "400" : {
+            "description" : "Invalid ID supplied"
+          },
+          "404" : {
+            "description" : "Tender not found"
+          }
+        }
+      }
+    },
+    "/jurisdictions" : {
+      "get" : {
+        "tags" : [ "additional information" ],
+        "summary" : "List of jurisdictions",
+        "description" : "Returns  the list of jurisdictions from the OpenCorporates API",
+        "operationId" : "getJurisdictions",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "size",
+          "in" : "query",
+          "description" : "size",
+          "required" : false,
+          "type" : "integer",
+          "default" : 10,
+          "format" : "int 64"
+        }, {
+          "name" : "offset",
+          "in" : "query",
+          "description" : "offset",
+          "required" : false,
+          "type" : "integer",
+          "default" : 0,
+          "format" : "int 64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Jurisdictions"
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid ID supplied"
+          },
+          "404" : {
+            "description" : "Tender not found"
+          }
+        }
+      }
+    },
+    "/industryCodes" : {
+      "get" : {
+        "tags" : [ "additional information" ],
+        "summary" : "List of industry codes",
+        "description" : "Returns the list of industry codes from the OpenCorporates API",
+        "operationId" : "getIndustryCodes",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "size",
+          "in" : "query",
+          "description" : "size",
+          "required" : false,
+          "type" : "integer",
+          "default" : 10,
+          "format" : "int 64"
+        }, {
+          "name" : "offset",
+          "in" : "query",
+          "description" : "offset",
+          "required" : false,
+          "type" : "integer",
+          "default" : 0,
+          "format" : "int 64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/IndustryCodes"
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid ID supplied"
+          },
+          "404" : {
+            "description" : "Tender not found"
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "IndustryCodes" : {
+      "type" : "object"
+    },
+    "Jurisdictions" : {
+      "type" : "object"
+    },
+    "Reconciliation" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "type" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Reconciliation_type"
+          }
+        },
+        "score" : {
+          "type" : "integer",
+          "format" : "float"
+        },
+        "match" : {
+          "type" : "boolean"
+        },
+        "uri" : {
+          "type" : "string"
+        }
+      }
+    },
+    "SearchAPIDocuments" : {
+      "type" : "object",
+      "properties" : {
+        "date" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "id" : {
+          "type" : "string"
+        },
+        "language" : {
+          "type" : "string"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "source" : {
+          "type" : "string"
+        }
+      }
+    },
+    "ContractingProcess" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string"
+        },
+        "releasePublishedDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        }
+      }
+    },
+    "ListContractingProcess" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string"
+        },
+        "releasePublishedDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        }
+      }
+    },
+    "Contract" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string"
+        },
+        "period" : {
+          "$ref" : "#/definitions/Contract_period"
+        }
+      }
+    },
+    "ListContract" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string"
+        },
+        "period" : {
+          "$ref" : "#/definitions/Period"
+        }
+      }
+    },
+    "Amendment" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "date" : {
+          "type" : "string",
+          "format" : "date-time"
+        }
+      }
+    },
+    "Document" : {
+      "type" : "object",
+      "required" : [ "id" ],
+      "properties" : {
+        "id" : {
+          "type" : "string"
+        },
+        "type" : {
+          "type" : "string"
+        },
+        "language" : {
+          "type" : "string"
+        },
+        "url" : {
+          "type" : "string",
+          "format" : "uri"
+        }
+      }
+    },
+    "Item" : {
+      "type" : "object",
+      "required" : [ "description", "id" ],
+      "properties" : {
+        "id" : {
+          "type" : "string"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "classificationScheme" : {
+          "type" : "string"
+        },
+        "classification" : {
+          "type" : "string"
+        },
+        "additionalClassificationScheme" : {
+          "type" : "string"
+        },
+        "aditionalClassification" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Buyer" : {
+      "properties" : {
+        "legalName" : {
+          "type" : "string"
+        },
+        "address" : {
+          "$ref" : "#/definitions/Address"
+        },
+        "contactPoint" : {
+          "$ref" : "#/definitions/ContactPoint"
+        }
+      }
+    },
+    "Supplier" : {
+      "properties" : {
+        "id" : {
+          "type" : "string"
+        },
+        "organisation" : {
+          "type" : "string"
+        },
+        "legalName" : {
+          "type" : "string"
+        },
+        "jurisdiction" : {
+          "type" : "string"
+        },
+        "address" : {
+          "$ref" : "#/definitions/Address"
+        },
+        "contactPoint" : {
+          "$ref" : "#/definitions/ContactPoint"
+        }
+      }
+    },
+    "Address" : {
+      "properties" : {
+        "streetAddress" : {
+          "type" : "string"
+        },
+        "pastalCode" : {
+          "type" : "integer",
+          "format" : "int 64"
+        },
+        "locality" : {
+          "type" : "string"
+        },
+        "country" : {
+          "type" : "string"
+        }
+      }
+    },
+    "ContactPoint" : {
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        },
+        "email" : {
+          "type" : "string"
+        },
+        "telephone" : {
+          "type" : "string"
+        },
+        "url" : {
+          "type" : "string"
+        },
+        "fax" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Organisation" : {
+      "type" : "object",
+      "required" : [ "id", "jurisdiction" ],
+      "properties" : {
+        "id" : {
+          "type" : "string"
+        },
+        "legalName" : {
+          "type" : "string"
+        },
+        "jurisdiction" : {
+          "type" : "string"
+        },
+        "foundingDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "dissolutionDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "numberOfEmployees" : {
+          "type" : "integer"
+        },
+        "status" : {
+          "type" : "string"
+        },
+        "activity" : {
+          "type" : "string"
+        },
+        "activityType" : {
+          "type" : "string"
+        },
+        "fullAddress" : {
+          "$ref" : "#/definitions/Organisation_fullAddress"
+        }
+      }
+    },
+    "ListOrganisation" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string"
+        },
+        "legalName" : {
+          "type" : "string"
+        },
+        "jurisdiction" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Award" : {
+      "type" : "object",
+      "required" : [ "id", "title" ],
+      "properties" : {
+        "id" : {
+          "type" : "string"
+        },
+        "title" : {
+          "type" : "string"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "date" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "status" : {
+          "$ref" : "#/definitions/AwardStatus"
+        },
+        "contractPeriod" : {
+          "$ref" : "#/definitions/Contract_period"
+        },
+        "value" : {
+          "$ref" : "#/definitions/Value"
+        },
+        "tender" : {
+          "$ref" : "#/definitions/ListTender"
+        }
+      }
+    },
+    "ListAward" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string"
+        },
+        "title" : {
+          "type" : "string"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "date" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "status" : {
+          "$ref" : "#/definitions/AwardStatus"
+        }
+      }
+    },
+    "Tender" : {
+      "type" : "object",
+      "required" : [ "id" ],
+      "properties" : {
+        "id" : {
+          "type" : "string"
+        },
+        "title" : {
+          "type" : "string"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "status" : {
+          "$ref" : "#/definitions/TenderStatus"
+        },
+        "numberOfTenderers" : {
+          "type" : "integer"
+        },
+        "procurement" : {
+          "$ref" : "#/definitions/Tender_procurement"
+        },
+        "award" : {
+          "$ref" : "#/definitions/ListAward"
+        },
+        "submission" : {
+          "$ref" : "#/definitions/Tender_procurement"
+        },
+        "enquiry" : {
+          "type" : "string"
+        },
+        "eligibilityCriteria" : {
+          "type" : "string"
+        },
+        "tenderPeriod" : {
+          "$ref" : "#/definitions/Tender_tenderPeriod"
+        },
+        "milestone" : {
+          "$ref" : "#/definitions/Milestone"
+        }
+      }
+    },
+    "ListTender" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string"
+        },
+        "title" : {
+          "type" : "string"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "status" : {
+          "$ref" : "#/definitions/TenderStatus"
+        }
+      }
+    },
+    "Milestone" : {
+      "type" : "object",
+      "properties" : {
+        "title" : {
+          "type" : "string"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "dueDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "documents" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Document"
+          }
+        },
+        "amendmentDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        }
+      }
+    },
+    "Period" : {
+      "type" : "object",
+      "properties" : {
+        "startDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "endDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        }
+      }
+    },
+    "TenderStatus" : {
+      "type" : "string",
+      "enum" : [ "planning", "planned", "active", "cancelled", "unsuccessful", "completed", "withdrawn" ]
+    },
+    "AwardStatus" : {
+      "type" : "string",
+      "enum" : [ "pending", "active", "cancelled", "unsuccesful" ]
+    },
+    "Value" : {
+      "type" : "object",
+      "properties" : {
+        "amount" : {
+          "type" : "integer"
+        },
+        "currency" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Reconciliation_type" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string"
+        },
+        "name" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Contract_period" : {
+      "type" : "object",
+      "properties" : {
+        "startDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "endDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        }
+      }
+    },
+    "Organisation_fullAddress" : {
+      "type" : "object",
+      "properties" : {
+        "address" : {
+          "type" : "string"
+        },
+        "postCode" : {
+          "type" : "integer"
+        },
+        "postName" : {
+          "type" : "string"
+        },
+        "thoroughfare" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Tender_procurement" : {
+      "type" : "object",
+      "properties" : {
+        "method" : {
+          "type" : "string"
+        },
+        "methodDetails" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Tender_tenderPeriod" : {
+      "type" : "object",
+      "properties" : {
+        "minEstimatedAmount" : {
+          "type" : "integer"
+        },
+        "minEstimatedCurrency" : {
+          "type" : "string"
+        },
+        "maxEstimatedAmount" : {
+          "type" : "integer"
+        },
+        "maxEstimatedCurrency" : {
+          "type" : "string"
+        }
+      }
+    }
+  },
+  "parameters" : {
+    "title" : {
+      "name" : "title",
+      "in" : "query",
+      "description" : "title",
+      "required" : false,
+      "type" : "string"
+    },
+    "description" : {
+      "name" : "description",
+      "in" : "query",
+      "description" : "description",
+      "required" : false,
+      "type" : "string"
+    },
+    "name" : {
+      "name" : "name",
+      "in" : "query",
+      "description" : "name",
+      "required" : false,
+      "type" : "string"
+    },
+    "jurisdiction" : {
+      "name" : "jurisdiction",
+      "in" : "query",
+      "description" : "jurisdiction",
+      "required" : false,
+      "type" : "string"
+    },
+    "jurisdiction_path" : {
+      "name" : "jurisdiction",
+      "in" : "path",
+      "description" : "jurisdiction",
+      "required" : true,
+      "type" : "string"
+    },
+    "query" : {
+      "name" : "query",
+      "in" : "query",
+      "description" : "query",
+      "required" : false,
+      "type" : "string"
+    },
+    "minemployees" : {
+      "name" : "minemployees",
+      "in" : "query",
+      "description" : "minimum number of employees",
+      "required" : false,
+      "type" : "integer",
+      "format" : "int 64"
+    },
+    "currency" : {
+      "name" : "currency",
+      "in" : "query",
+      "description" : "currency",
+      "required" : false,
+      "type" : "string"
+    },
+    "lang" : {
+      "name" : "lang",
+      "in" : "query",
+      "description" : "language",
+      "required" : false,
+      "type" : "string"
+    },
+    "text" : {
+      "name" : "text",
+      "in" : "query",
+      "description" : "text",
+      "required" : false,
+      "type" : "string"
+    },
+    "source" : {
+      "name" : "source",
+      "in" : "query",
+      "description" : "source",
+      "required" : false,
+      "type" : "string"
+    },
+    "size" : {
+      "name" : "size",
+      "in" : "query",
+      "description" : "size",
+      "required" : false,
+      "type" : "integer",
+      "default" : 10,
+      "format" : "int 64"
+    },
+    "offset" : {
+      "name" : "offset",
+      "in" : "query",
+      "description" : "offset",
+      "required" : false,
+      "type" : "integer",
+      "default" : 0,
+      "format" : "int 64"
+    },
+    "cursor" : {
+      "name" : "cursor",
+      "in" : "query",
+      "description" : "cursor",
+      "required" : false,
+      "type" : "string"
+    },
+    "date" : {
+      "name" : "date",
+      "in" : "query",
+      "description" : "date - ISO 8601",
+      "required" : false,
+      "type" : "string"
+    },
+    "start_dt" : {
+      "name" : "start_dt",
+      "in" : "query",
+      "description" : "start date - ISO 8601",
+      "required" : false,
+      "type" : "string"
+    },
+    "end_dt" : {
+      "name" : "end_dt",
+      "in" : "query",
+      "description" : "end date - ISO 8601",
+      "required" : false,
+      "type" : "string"
+    },
+    "contract_status" : {
+      "name" : "status",
+      "in" : "query",
+      "description" : "contracting status",
+      "required" : false,
+      "type" : "string",
+      "enum" : [ "pending", "active", "cancelled", "terminated" ]
+    },
+    "award_status" : {
+      "name" : "status",
+      "in" : "query",
+      "description" : "award status",
+      "required" : false,
+      "type" : "string",
+      "enum" : [ "pending", "active", "cancelled", "unsuccessful" ]
+    },
+    "tender_status" : {
+      "name" : "status",
+      "in" : "query",
+      "description" : "tender status",
+      "required" : false,
+      "type" : "string",
+      "enum" : [ "planning", "planned", "active", "cancelled", "unsuccessful", "completed", "withdrawn" ]
+    },
+    "code" : {
+      "name" : "code",
+      "in" : "query",
+      "description" : "classification code",
+      "required" : false,
+      "type" : "string"
+    },
+    "contractingp_id" : {
+      "name" : "id",
+      "in" : "path",
+      "description" : "contrating process identifier",
+      "required" : true,
+      "type" : "string"
+    },
+    "contract_id" : {
+      "name" : "id",
+      "in" : "path",
+      "description" : "contract identifier",
+      "required" : true,
+      "type" : "string"
+    },
+    "organisation_id" : {
+      "name" : "id",
+      "in" : "path",
+      "description" : "organisation identifier",
+      "required" : true,
+      "type" : "string"
+    },
+    "award_id" : {
+      "name" : "id",
+      "in" : "path",
+      "description" : "award identifier",
+      "required" : true,
+      "type" : "string"
+    },
+    "tender_id" : {
+      "name" : "id",
+      "in" : "path",
+      "description" : "tender idenrifier",
+      "required" : true,
+      "type" : "string"
+    }
+  }
+}
