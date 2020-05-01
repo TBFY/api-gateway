@@ -1562,7 +1562,7 @@
             "description" : "Invalid ID supplied"
           },
           "404" : {
-            "description" : "Tender not found"
+            "description" : "Supplier not found"
           }
         }
       }
@@ -1633,7 +1633,7 @@
             "description" : "Invalid ID supplied"
           },
           "404" : {
-            "description" : "Tender not found"
+            "description" : "Document not found"
           }
         }
       }
@@ -1672,7 +1672,7 @@
             "description" : "Invalid ID supplied"
           },
           "404" : {
-            "description" : "Tender not found"
+            "description" : "Organisation not found"
           }
         }
       }
@@ -1726,7 +1726,7 @@
             "description" : "Invalid ID supplied"
           },
           "404" : {
-            "description" : "Tender not found"
+            "description" : "Jurisdiction not found"
           }
         }
       }
@@ -1753,7 +1753,7 @@
             "description" : "Invalid ID supplied"
           },
           "404" : {
-            "description" : "Tender not found"
+            "description" : "Code not found"
           }
         }
       }

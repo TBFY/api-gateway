@@ -887,7 +887,7 @@ paths:
         '400':
           description: Invalid ID supplied
         '404':
-          description: Tender not found
+          description: Supplier not found
   '/documents':
     get:
       tags:
@@ -915,7 +915,7 @@ paths:
         '400':
           description: Invalid ID supplied
         '404':
-          description: Tender not found
+          description: Document not found
   '/brands':
     get:
       tags:
@@ -938,7 +938,7 @@ paths:
         '400':
           description: Invalid ID supplied
         '404':
-          description: Tender not found
+          description: Organisation not found
   '/triple':
     get:
       tags:
@@ -976,7 +976,7 @@ paths:
         '400':
           description: Invalid ID supplied
         '404':
-          description: Tender not found
+          description: Jurisdiction not found
   '/industryCodes':
     get:
       tags:
@@ -996,7 +996,7 @@ paths:
         '400':
           description: Invalid ID supplied
         '404':
-          description: Tender not found
+          description: Code not found
 definitions:
   IndustryCodes:
     type: object
