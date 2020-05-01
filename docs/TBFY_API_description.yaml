@@ -942,7 +942,7 @@ paths:
   '/triple':
     get:
       tags:
-        - SPARQL endpoing
+        - SPARQL endpoint
       summary: Access to the SPARQL endpoint
       description: Returns a query directly from the TheyBuyForYou knowledge graph
       operationId: getSparql

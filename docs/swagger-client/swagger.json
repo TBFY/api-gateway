@@ -1679,7 +1679,7 @@
     },
     "/triple" : {
       "get" : {
-        "tags" : [ "SPARQL endpoing" ],
+        "tags" : [ "SPARQL endpoint" ],
         "summary" : "Access to the SPARQL endpoint",
         "description" : "Returns a query directly from the TheyBuyForYou knowledge graph",
         "operationId" : "getSparql",
