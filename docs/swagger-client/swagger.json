@@ -1657,22 +1657,6 @@
           "description" : "text",
           "required" : false,
           "type" : "string"
-        }, {
-          "name" : "size",
-          "in" : "query",
-          "description" : "size",
-          "required" : false,
-          "type" : "integer",
-          "default" : 10,
-          "format" : "int 64"
-        }, {
-          "name" : "offset",
-          "in" : "query",
-          "description" : "offset",
-          "required" : false,
-          "type" : "integer",
-          "default" : 0,
-          "format" : "int 64"
         } ],
         "responses" : {
           "200" : {
@@ -1727,23 +1711,7 @@
         "description" : "Returns  the list of jurisdictions from the OpenCorporates API",
         "operationId" : "getJurisdictions",
         "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "size",
-          "in" : "query",
-          "description" : "size",
-          "required" : false,
-          "type" : "integer",
-          "default" : 10,
-          "format" : "int 64"
-        }, {
-          "name" : "offset",
-          "in" : "query",
-          "description" : "offset",
-          "required" : false,
-          "type" : "integer",
-          "default" : 0,
-          "format" : "int 64"
-        } ],
+        "parameters" : [ ],
         "responses" : {
           "200" : {
             "description" : "OK",
@@ -1770,23 +1738,7 @@
         "description" : "Returns the list of industry codes from the OpenCorporates API",
         "operationId" : "getIndustryCodes",
         "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "size",
-          "in" : "query",
-          "description" : "size",
-          "required" : false,
-          "type" : "integer",
-          "default" : 10,
-          "format" : "int 64"
-        }, {
-          "name" : "offset",
-          "in" : "query",
-          "description" : "offset",
-          "required" : false,
-          "type" : "integer",
-          "default" : 0,
-          "format" : "int 64"
-        } ],
+        "parameters" : [ ],
         "responses" : {
           "200" : {
             "description" : "OK",

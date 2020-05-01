@@ -928,8 +928,6 @@ paths:
       parameters:
         - $ref: '#/parameters/jurisdiction_path'
         - $ref: '#/parameters/text'
-        - $ref: '#/parameters/size'
-        - $ref: '#/parameters/offset'
       responses:
         '200':
           description: OK
@@ -968,9 +966,6 @@ paths:
       operationId: getJurisdictions
       produces:
         - application/json
-      parameters:
-        - $ref: '#/parameters/size'
-        - $ref: '#/parameters/offset'
       responses:
         '200':
           description: OK
@@ -991,9 +986,6 @@ paths:
       operationId: getIndustryCodes
       produces:
         - application/json
-      parameters:
-        - $ref: '#/parameters/size'
-        - $ref: '#/parameters/offset'
       responses:
         '200':
           description: OK
