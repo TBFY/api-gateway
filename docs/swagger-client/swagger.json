@@ -1554,7 +1554,7 @@
             "schema" : {
               "type" : "array",
               "items" : {
-                "$ref" : "#/definitions/ListTender"
+                "$ref" : "#/definitions/ListSupplier"
               }
             }
           },
@@ -2098,6 +2098,29 @@
         },
         "contactPoint" : {
           "$ref" : "#/definitions/ContactPoint"
+        }
+      }
+    },
+    "ListSupplier" : {
+      "properties" : {
+        "organisation" : {
+          "type" : "string"
+        },
+        "legalName" : {
+          "type" : "string"
+        },
+        "jurisdiction" : {
+          "type" : "string"
+        },
+        "numberOfEmployees" : {
+          "type" : "integer",
+          "format" : "int 64"
+        },
+        "award" : {
+          "$ref" : "#/definitions/ListAward"
+        },
+        "value" : {
+          "$ref" : "#/definitions/Value"
         }
       }
     },
