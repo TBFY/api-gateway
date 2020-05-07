@@ -25,15 +25,15 @@
         "operationId" : "getContractingProcess",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "end_dt",
-          "in" : "query",
-          "description" : "end date - ISO 8601",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "start_dt",
           "in" : "query",
           "description" : "start date - ISO 8601",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "end_dt",
+          "in" : "query",
+          "description" : "end date - ISO 8601",
           "required" : false,
           "type" : "string"
         }, {
@@ -1285,7 +1285,7 @@
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
-          "description" : "tender idenrifier",
+          "description" : "tender identifier",
           "required" : true,
           "type" : "string"
         }, {
@@ -1331,7 +1331,7 @@
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
-          "description" : "tender idenrifier",
+          "description" : "tender identifier",
           "required" : true,
           "type" : "string"
         }, {
@@ -1380,7 +1380,7 @@
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
-          "description" : "tender idenrifier",
+          "description" : "tender identifier",
           "required" : true,
           "type" : "string"
         }, {
@@ -1429,7 +1429,7 @@
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
-          "description" : "tender idenrifier",
+          "description" : "tender identifier",
           "required" : true,
           "type" : "string"
         }, {
@@ -2658,7 +2658,7 @@
     "tender_id" : {
       "name" : "id",
       "in" : "path",
-      "description" : "tender idenrifier",
+      "description" : "tender identifier",
       "required" : true,
       "type" : "string"
     }

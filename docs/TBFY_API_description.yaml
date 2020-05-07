@@ -209,7 +209,7 @@ parameters:
   tender_id:
     name: id
     in: path
-    description: tender idenrifier
+    description: tender identifier
     required: true
     type: string
 paths:
@@ -223,8 +223,8 @@ paths:
       produces:
         - application/json
       parameters:
-        - $ref: '#/parameters/end_dt'
         - $ref: '#/parameters/start_dt'
+        - $ref: '#/parameters/end_dt'
         - $ref: '#/parameters/code'
         - $ref: '#/parameters/size'
         - $ref: '#/parameters/offset'
