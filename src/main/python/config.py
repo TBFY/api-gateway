@@ -183,7 +183,7 @@ sparQLEndpoint = {
     "name":"sparql-endpoint",
     "uris":"/triples",
     "methods":"GET,POST,PUT,DELETE",
-    "upstream_url":"http://data.tbfy.eu/repositories/TBFY",
+    "upstream_url":"http://data.tbfy.eu/tbfy/query",
     "strip_uri":True,
     "preserve_host":False,
     "retries":5,
@@ -198,7 +198,7 @@ kgAPI_organisation = {
     "name":"kg-organizations",
     "uris":"/organisation",
     "methods":"GET,POST,PUT,DELETE",
-    "upstream_url":"http://tbfy.librairy.linkeddata.es/kg-api/organisation",
+    "upstream_url":"http://api.tbfy.eu/kg-api/organisation",
     "strip_uri":True,
     "preserve_host":False,
     "retries":5,
@@ -213,7 +213,7 @@ kgAPI_contract = {
     "name":"kg-contract",
     "uris":"/contract",
     "methods":"GET,POST,PUT,DELETE",
-    "upstream_url":"http://tbfy.librairy.linkeddata.es/kg-api/contract",
+    "upstream_url":"http://api.tbfy.eu/kg-api/contract",
     "strip_uri":True,
     "preserve_host":False,
     "retries":5,
@@ -228,7 +228,22 @@ kgAPI_award = {
     "name":"kg-award",
     "uris":"/award",
     "methods":"GET,POST,PUT,DELETE",
-    "upstream_url":"http://tbfy.librairy.linkeddata.es/kg-api/award",
+    "upstream_url":"http://api.tbfy.eu/kg-api/award",
+    "strip_uri":True,
+    "preserve_host":False,
+    "retries":5,
+    "upstream_connect_timeout":60000,
+    "upstream_send_timeout":60000,
+    "upstream_read_timeout":60000,
+    "https_only":False,
+    "http_if_terminated":True
+}
+
+kgAPI_supplier = {
+    "name":"kg-supplier",
+    "uris":"/supplier",
+    "methods":"GET,POST,PUT,DELETE",
+    "upstream_url":"http://api.tbfy.eu/kg-api/supplier",
     "strip_uri":True,
     "preserve_host":False,
     "retries":5,
@@ -243,7 +258,7 @@ kgAPI_tender = {
     "name":"kg-tender",
     "uris":"/tender",
     "methods":"GET,POST,PUT,DELETE",
-    "upstream_url":"http://tbfy.librairy.linkeddata.es/kg-api/tender",
+    "upstream_url":"http://api.tbfy.eu/kg-api/tender",
     "strip_uri":True,
     "preserve_host":False,
     "retries":5,
@@ -258,7 +273,7 @@ kgAPI_contractingProcesses = {
     "name":"kg-contractingProcesses",
     "uris":"/contractingProcess",
     "methods":"GET,POST,PUT,DELETE",
-    "upstream_url":"http://tbfy.librairy.linkeddata.es/kg-api/contractingProcess",
+    "upstream_url":"http://api.tbfy.eu/kg-api/contractingProcess",
     "strip_uri":True,
     "preserve_host":False,
     "retries":5,
@@ -272,7 +287,7 @@ kgAPI_contractingProcesses = {
 
 
 
-configs = [searchAPI, kgAPI_organisation,  kgAPI_award, kgAPI_contract, kgAPI_contractingProcesses, kgAPI_tender, reconciliationAPI, sparQLEndpoint, companiesAPI, ocdsAPI, industryCodesAPI, jurisdictionsAPI, placeholdersAPI, statementsAPI, filingsAPI, corporateGroupingsAPI, officersAPI]
+configs = [searchAPI, kgAPI_organisation,  kgAPI_award, kgAPI_supplier, kgAPI_contract, kgAPI_contractingProcesses, kgAPI_tender, reconciliationAPI, sparQLEndpoint, companiesAPI, ocdsAPI, industryCodesAPI, jurisdictionsAPI, placeholdersAPI, statementsAPI, filingsAPI, corporateGroupingsAPI, officersAPI]
 
 
 for config in configs:

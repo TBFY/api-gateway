@@ -33,7 +33,7 @@ services:
     restart: always
 
   db:
-    image: tbfy/gateway-db:latest
+    image: tbfy/kg-gateway:latest
     environment:
       POSTGRES_DB: ${KONG_PG_DATABASE:-kong}
       POSTGRES_PASSWORD: ${KONG_PG_PASSWORD:-kong}

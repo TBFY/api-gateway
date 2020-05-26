@@ -1,1 +1,1 @@
-docker push tbfy/gateway-db:latest
+docker push tbfy/kg-gateway:latest

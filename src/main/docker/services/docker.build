@@ -1,1 +1,1 @@
-docker build -t tbfy/gateway-db:latest .
+docker build -t tbfy/kg-gateway:latest .
