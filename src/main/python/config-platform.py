@@ -149,7 +149,7 @@ reconciliationAPI = {
     "name":"reconciliation-api",
     "uris":"/brands",
     "methods":"GET,POST,PUT,DELETE",
-    "upstream_url":"https://opencorporates.com/reconcile",
+    "upstream_url":"https://reconcile.opencorporates.com",
     "strip_uri":True,
     "preserve_host":False,
     "retries":5,
